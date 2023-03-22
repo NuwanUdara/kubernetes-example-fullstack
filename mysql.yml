@@ -49,4 +49,7 @@ spec:
         - name: MYSQL_DATABASE
           value: "myquo"
         - name: MYSQL_ROOT_PASSWORD
-          value: "password"
+          valueFrom:
+            secretKeyRef:
+              name: mypass
+              key: secretKey

@@ -12,23 +12,35 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: server
   template:
     metadata:
       labels:
-        editor: vscode
+        app: server
     spec:
       containers:
       - name: server
         image: nuwanudara/qserver:3.0.0
-
         resources:
           limits:
             memory: 316Mi
             cpu: 500m
-
+        env:
+        - name: MY_SQL_HOST
+          value: "mysql-svc"
+        - name: MY_SQL_USER
+          value: "root"
+        - name: MY_SQL_PASS
+          value: "password"
+        - name: MY_SQL_PORT
+          value: "3306"
+        - name: MY_SQL_DATABSE
+          value: "myquo"

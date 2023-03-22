@@ -6,22 +6,25 @@ spec:
   selector:
     app:  client
   ports:
-  - name: express
+  - name: front
     port:  3000
     targetPort:  3000
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: client
   template:
     metadata:
       labels:
-        editor: vscode
+        app: client
     spec:
       containers:
       - name: client
@@ -31,4 +34,3 @@ spec:
           limits:
             memory: 316Mi
             cpu: 500m
-
