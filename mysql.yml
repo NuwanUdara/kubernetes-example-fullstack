@@ -28,12 +28,17 @@ spec:
         - name:  mysql-inits
           configMap:
             name:  mysql-init-config
+        - name: my-db-pvc-storage
+          persistentVolumeClaim:
+            claimName: my-db-pvc 
       containers:
       - name: mysql
         image: mysql:latest
         volumeMounts:
         - name: mysql-inits
           mountPath: /docker-entrypoint-initdb.d
+        - name: my-db-pvc-storage
+          mountPath: /var/lib/mysql
         resources:
           limits:
             memory: 1024Mi
