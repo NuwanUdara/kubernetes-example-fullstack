@@ -7,6 +7,7 @@ spec:
   - ReadWriteMany
   volumeName: my-db-pv
   resources:
-  requests:
-    storage: 256Mi
+    requests:
+      storage: 256Mi
   storageClassName: manual
+
