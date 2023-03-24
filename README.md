@@ -66,7 +66,7 @@ it will look somrthing like this. replace the
 https://10.64.140.44/ with your external ip address.
 
 ```bash
-curl -k --header "Host: helloworld.local" https://10.64.140.44/
+curl -k --header "Host: helloworld.local" https://10.64.140.44/quote
 ```
 
 You will get a 200 response or, avaibale quotes stored in the mysql if there is any.
