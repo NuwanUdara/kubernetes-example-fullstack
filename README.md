@@ -4,7 +4,7 @@ This project is a simple intergration of the docker compose example [in here](ht
 . 
 The compose files and source data can be found here.
 
-$How \;to \; deploy$
+$How \ to \ deploy$
 
   You Have to install k8s in at least single node. I prefer microk8s. 
 
